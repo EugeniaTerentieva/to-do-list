@@ -19,9 +19,36 @@ body {
 .content {
     flex-grow: 1;
     padding: 8px 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer {
     height: 80px;
     background-color: #D9D9D9;
+}
+
+.new-task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60vw;
+    font-size: 16px;
+}
+
+#new-task-input {
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 16px;
+}
+
+#new-task-button {
+    margin-left: auto;
+    background-color: black;
+    color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
 }
