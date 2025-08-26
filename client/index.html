@@ -18,19 +18,55 @@
             </div>
 
             <div class="tasks-list">
-                <input type="text" id="search-input" placeholder="Поиск...">
-                <ul id="itemList">
-                    <li>Задача 1</li>
-                    <li>Задача 2</li>
-                    <li>Задача 3</li>
-                    <li>Задача 4</li>
-                    <li>Задача 5</li>
+
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Поиск...">
+                    <span class="icon">🔍</span>
+                </div>
+
+                <ul id="item-list">
+                    <li>Задача 1<input type="checkbox"></li>
+                    <li>Задача 2<input type="checkbox"></li>
+                    <li>Задача 3<input type="checkbox"></li>
+                    <li>Задача 4<input type="checkbox"></li>
+                    <li>Задача 5<input type="checkbox"></li>
                 </ul>
             </div>
         </div>
 
         <footer class="footer"></footer>
     </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll("#item-list input[type=checkbox]");
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    cb.parentElement.classList.add("done");
+                } else {
+                    cb.parentElement.classList.remove("done");
+                }
+            });
+        });
+
+        const searchInput = document.getElementById("search-input");
+        const items = document.querySelectorAll("#item-list li");
+
+        searchInput.addEventListener("input", () => {
+            const filter = searchInput.value.toLowerCase();
+            items.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    li.classList.remove("hidden");
+                } else {
+                    li.classList.add("hidden");
+                }
+            });
+        });
+
+    </script>
+
 </body>
 
 </html>
