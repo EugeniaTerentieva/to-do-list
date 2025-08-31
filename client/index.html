@@ -19,17 +19,18 @@
 
             <div class="tasks-list">
 
-                <!-- <div class="search-box"> -->
-                    <input type="text" id="search-input" placeholder="Поиск...">
-                    <!-- <span class="icon">🔍</span> -->
-                <!-- </div> -->
+                <input type="text" id="search-input" placeholder="Поиск...">
+
+                <div id="no-tasks">
+                    <p>Нет задач</p>
+                </div>
 
                 <ul id="item-list">
-                    <li>Задача 1<input type="checkbox"></li>
+                    <!-- <li>Задача 1<input type="checkbox"></li>
                     <li>Задача 2<input type="checkbox"></li>
                     <li>Задача 3<input type="checkbox"></li>
                     <li>Задача 4<input type="checkbox"></li>
-                    <li>Задача 5<input type="checkbox"></li>
+                    <li>Задача 5<input type="checkbox"></li> -->
                 </ul>
             </div>
         </div>
@@ -38,6 +39,40 @@
     </div>
 
     <script>
+
+        const emptyCheck = (items) => items.length === 0 ?
+            noTasksBox.classList.remove("hidden") :
+            noTasksBox.classList.add("hidden");
+
+        const newCheckbox = () => {
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            return checkbox;
+        }
+
+        const searchInput = document.getElementById("search-input");
+        const input = document.getElementById("new-task-input");
+        const items = Array.from(document.querySelectorAll("#item-list li"));
+        const noTasksBox = document.getElementById("no-tasks");
+        const button = document.getElementById("new-task-button");
+        const list = document.getElementById("item-list");
+
+        emptyCheck(items);
+
+        button.addEventListener('click', () => {
+            const task = input.value;
+
+            if (task !== '') {                           // если поле не пустое
+                const li = document.createElement('li'); // создаём новый элемент <li>
+                li.textContent = task;                   // добавляем текст
+                list.appendChild(li);                    // добавляем в список
+                li.appendChild(newCheckbox());
+                items.push(task);
+                input.value = '';
+                emptyCheck(items);
+            }
+        })
+
         const checkboxes = document.querySelectorAll("#item-list input[type=checkbox]");
 
         checkboxes.forEach(cb => {
@@ -50,9 +85,6 @@
             });
         });
 
-        const searchInput = document.getElementById("search-input");
-        const items = document.querySelectorAll("#item-list li");
-
         searchInput.addEventListener("input", () => {
             const filter = searchInput.value.toLowerCase();
             items.forEach(li => {
@@ -64,6 +96,11 @@
                 }
             });
         });
+
+
+
+
+
 
     </script>
 
