@@ -1,9 +1,9 @@
 
 import { createServer } from 'http';
-
+import { arrayFromItems } from '../client/index.html';
 
 // Список дел
-const toDoList = [];
+const toDoList = arrayFromItems;
 
 // добавить дело
 const addToDo = (newTask) => toDoList.push(newTask);

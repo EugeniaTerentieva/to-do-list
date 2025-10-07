@@ -30,7 +30,7 @@ body {
     background-color: #D9D9D9;
 }
 
-.new-task {
+.new-task-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -46,7 +46,7 @@ body {
     font-size: 16px;
 }
 
-#new-task-button {
+.button {
     margin-left: auto;
     background-color: black;
     color: #D9D9D9;
@@ -55,6 +55,12 @@ body {
     padding: 10px;
     font-size: 16px;
 }
+
+.button-warning {
+    background-color: red;
+    font-weight: bold;
+}
+
 
 .tasks-list {
     display: flex;
