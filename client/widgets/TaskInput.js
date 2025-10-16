@@ -1,7 +1,8 @@
-import { HtmlComponent } from "../components/HtmlComponent.js"
+import { Input } from "../components/Input.js";
 
-export class TaskInput extends HtmlComponent {
-    html() {
-        return `<input type="text" placeholder="Введите имя задачи..." id="${this.id}">`
+export class TaskInput extends Input {
+
+    constructor() {
+        super({id: 'new-task-input', placeholder: "Введите имя задачи..."})
     }
 }

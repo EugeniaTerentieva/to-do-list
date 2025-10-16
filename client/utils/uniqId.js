@@ -1,0 +1,1 @@
+export const uid = () => Math.random() * Math.random() * Math.random() * 100000000000;

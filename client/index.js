@@ -4,27 +4,29 @@ import { SearchInput } from "./widgets/SearchInput.js";
 import { NoTasksLabel } from "./widgets/NoTasksLabel.js";
 import { TaskList } from "./widgets/TaskList.js";
 import { ELEMENTS_CREATED_EVENT } from "./constants.js";
-import { newTaskContiner } from "./constants.js";
-import { tasksContainer } from "./constants.js";
 
 
 
-const taskInput = new TaskInput({id: 'new-task-input' });
+const taskInput = new TaskInput();
 const createButton = new CreateTaskButton({ taskInput });
-const searchInput = new SearchInput({id: 'search-input' });
-const noTasksLabel = new NoTasksLabel({id: 'no-tasks' });
-const taskList = new TaskList({id: 'item-list' });
+const searchInput = new SearchInput();
+const noTasksLabel = new NoTasksLabel();
+const taskList = new TaskList();
 
 
 // точка входа в рендер
 document.addEventListener('DOMContentLoaded', () => { 
 
+    const newTaskContiner = document.getElementById('new-task-container');
+
     newTaskContiner.insertAdjacentHTML('beforeend', taskInput.html());
     newTaskContiner.insertAdjacentHTML('beforeend', createButton.html());
     // newTaskContiner.insertAdjacentHTML('beforeend', createButton1.html());
 
+    const tasksContainer = document.getElementById('tasks-list-container');
+
     tasksContainer.insertAdjacentHTML('beforeend', searchInput.html());
-    tasksContainer.insertAdjacentHTML('beforeend', noTasksLabel.html());
+    // tasksContainer.insertAdjacentHTML('beforeend', noTasksLabel.html());
     tasksContainer.insertAdjacentHTML('beforeend', taskList.html());
 
     document.dispatchEvent(new CustomEvent(ELEMENTS_CREATED_EVENT));

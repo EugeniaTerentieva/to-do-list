@@ -2,6 +2,7 @@
 import { Button } from "../components/Button.js";
 import { ELEMENTS_CREATED_EVENT } from '../constants.js';
 import { api }  from '../api.js';
+import { taskStorage } from "../storage/index.js";
 
 
 export class CreateTaskButton extends Button {
@@ -16,7 +17,9 @@ export class CreateTaskButton extends Button {
 
                 const taskName = taskInput.htmlElement?.value;
 
-                api.createTask(taskName);
+                taskStorage.createTask(taskName);
+
+                taskInput.htmlElement.value = '';
             });
         })
     }

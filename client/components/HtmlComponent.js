@@ -1,12 +1,11 @@
-import { ELEMENTS_CREATED_EVENT } from "../constants.js";
-
 export class HtmlComponent {
     id = '';
     classes = [];
 
     constructor({ id = '', classes = []}) {
         this.id = id;
-        this.classes = classes;
+        this.classes = classes; //св-во для определения css стилей
+
     }
 
     get htmlElement() {

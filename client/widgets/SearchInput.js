@@ -1,7 +1,10 @@
-import { HtmlComponent } from "../components/HtmlComponent.js"
+import { Input } from "../components/Input.js";
 
-export class SearchInput extends HtmlComponent {
-    html() {
-        return `<input type="text" id="${this.id}" placeholder="Поиск...">`
+export class SearchInput extends Input {
+
+    constructor() {
+        
+        super({id: 'search-input', placeholder: "Поиск..."}); // = Input.constructor(params);
     }
+
 }
