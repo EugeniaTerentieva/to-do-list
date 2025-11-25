@@ -11,12 +11,13 @@ export class TaskList extends HtmlComponent {
 
         document.addEventListener(TASKS_CHANGED, () => {
 
-            this.htmlElement.innerHTML = '';
+            this.htmlElement.innerHTML = ''; //очистка прежнего списка
 
-            taskStorage.tasks.forEach((task) => {
- 
-                const li = new TaskListItem({ task });
+            taskStorage.tasks.forEach((task) => {  //добавление нового списка из массива 
+
+                const li = new TaskListItem({ task }); //созд-е элемента li
                 this.htmlElement.appendChild(li.createElement());
+
             })
         });
     };

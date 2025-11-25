@@ -1,8 +1,8 @@
 
 import { Button } from "../components/Button.js";
 import { ELEMENTS_CREATED_EVENT } from '../constants.js';
-import { api }  from '../api.js';
 import { taskStorage } from "../storage/index.js";
+import { TaskInput } from "./TaskInput.js";
 
 
 export class CreateTaskButton extends Button {
@@ -15,13 +15,29 @@ export class CreateTaskButton extends Button {
         document.addEventListener(ELEMENTS_CREATED_EVENT, () => {
             this.onClick(() => {
 
-                const taskName = taskInput.htmlElement?.value;
-
-                taskStorage.createTask(taskName);
-
-                taskInput.htmlElement.value = '';
+                this.handleInput(taskInput);
             });
+
+            taskInput.keyDown(() => {
+
+                this.handleInput(taskInput);
+            });
+
         })
     }
+
+    handleInput(taskInput) {
+        const taskName = taskInput.htmlElement?.value;
+
+        taskStorage.createTask(taskName);
+
+        taskInput.htmlElement.value = '';
+    }
 }
+
+// input.addEventListener("keydown", function (event) {
+//     if (event.key === "Enter") {
+//         handleInput();
+//     }
+// });
 

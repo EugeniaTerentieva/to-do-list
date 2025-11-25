@@ -23,4 +23,6 @@ export class HtmlComponent {
     onClick(callback) {
         this.htmlElement.addEventListener('click', callback);
     }
+
+
 }

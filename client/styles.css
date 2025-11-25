@@ -19,10 +19,11 @@ body {
 .content {
     flex-grow: 1;
     padding: 8px 12px;
+    margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 20px;
 }
 
 .footer {
@@ -32,10 +33,13 @@ body {
 
 .new-task-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
     width: 60vw;
     font-size: 16px;
+}
+
+.new-task-label {
+    font-weight: 500;
 }
 
 #new-task-input {
@@ -44,6 +48,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     font-size: 16px;
+    flex-grow: 0.85;
 }
 
 .button {
@@ -54,6 +59,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     font-size: 16px;
+    flex-grow: 0.1;
 }
 
 .button-warning {
@@ -63,6 +69,7 @@ body {
 
 
 .tasks-list {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -107,16 +114,21 @@ ul {
     padding: 0;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 li {
-    padding: 10px;
-    border-bottom-style: solid;
-    border-bottom-color: #B2B2B2;
-    color: #767676;
+    padding: 5px 10px 5px 20px;
+    min-height: 30px;
+    border-color: #8C8C8C;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    color: #757575;
+    margin: 7px 0px 7px 0px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 li.done {
@@ -134,3 +146,26 @@ input[type="checkbox"] {
     display: none;
 }
 
+.icon-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #F5F5F5;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-button-warning {
+    background-color: red;
+}
+
+.delete-button {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.delete-button:hover {
+    opacity: 1;
+}
